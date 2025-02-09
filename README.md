@@ -2,6 +2,26 @@
 
 The repository structure should reflect the architecture of the project, which represent the nodes and edges implemented.
 
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	retrieve(retrieve)
+	grade_documents(grade_documents)
+	generate(generate)
+	websearch(websearch)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> retrieve;
+	generate --> __end__;
+	retrieve --> grade_documents;
+	websearch --> generate;
+	grade_documents -.-> websearch;
+	grade_documents -.-> generate;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
+```
+
 - `graph.py` - Connects all nodes and edges.
 - `state.py` - Graph state objects that will be modified during the Graph execution.
 - `consts.py` - Constants used in the implementation.
@@ -20,7 +40,7 @@ Once the vector data is generated, the **vectorstore** command can be commented 
 
 Installing Dependencies:
 ```sh
-poetry add beautifulsoup4 langchain langgraph langchainhub langchain-community tavily-python langchain-chroma langchain_openai python-dotenv black isort pytest
+poetry add beautifulsoup4 langchain langgraph langchainhub langchain-community tavily-python langchain-chroma langchain_openai python-dotenv black isort pytest grandalf
 ```
 
 Running tests:

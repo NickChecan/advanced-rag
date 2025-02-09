@@ -19,7 +19,8 @@ dependencies = [
     "black (>=25.1.0,<26.0.0)",
     "isort (>=6.0.0,<7.0.0)",
     "pytest (>=8.3.4,<9.0.0)",
-    "langchain-openai (>=0.3.4,<0.4.0)"
+    "langchain-openai (>=0.3.4,<0.4.0)",
+    "grandalf (>=0.8,<0.9)"
 ]
 
 
