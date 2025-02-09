@@ -76,6 +76,16 @@ Running tests:
 pytest . -s -v
 ```
 
+Environment variables - `.env` file:
+```
+OPENAI_API_KEY=<>
+TAVILY_API_KEY=<>
+LANGCHAIN_API_KEY=<>
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_PROJECT=CRAG
+PYTHONPATH=</Users/../advanced-rag>
+```
+
 ### Reference
 
 - [Advanced RAG control flow with Mistral and LangChain](https://www.youtube.com/watch?v=sgnrL7yo1TE)
