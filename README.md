@@ -10,11 +10,17 @@ The repository structure should reflect the architecture of the project, which r
 - `tests/` - Contains the tests for the chains.
 - `ingestion.py` - Hold the logic that will download information to be indexed in the vector store
 
+### Running the project
+
+Uncomment the **vectorstore** code at the ingestion file and run the project. A new `.chroma` folder will be created at the root of the application.
+
+Once the vector data is generated, the **vectorstore** command can be commented out in order to avoid the same data ingestion everytime the project runs.
+
 ### Utilities
 
 Installing Dependencies:
 ```sh
-poetry add beautifulsoup4 langchain langgraph langchainhub langchain-community tavily-python langchain-chroma python-dotenv black isort pytest
+poetry add beautifulsoup4 langchain langgraph langchainhub langchain-community tavily-python langchain-chroma langchain_openai python-dotenv black isort pytest
 ```
 
 Running tests:
