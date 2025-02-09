@@ -10,10 +10,16 @@ The repository structure should reflect the architecture of the project, which r
 - `tests/` - Contains the tests for the chains.
 - `ingestion.py` - Hold the logic that will download information to be indexed in the vector store
 
-### Installing dependencies
+### Utilities
 
+Installing Dependencies:
 ```sh
 poetry add beautifulsoup4 langchain langgraph langchainhub langchain-community tavily-python langchain-chroma python-dotenv black isort pytest
+```
+
+Running tests:
+```sh
+pytest . -s -v
 ```
 
 ### Reference
