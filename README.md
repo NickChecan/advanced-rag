@@ -58,6 +58,35 @@ graph TD;
 	classDef last fill:#bfb6fc
 ```
 
+## Adaptive RAG
+
+Fancy word for simply using a question router to route our prompt to different RAG flows.
+
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	retrieve(retrieve)
+	grade_documents(grade_documents)
+	generate(generate)
+	websearch(websearch)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> retrieve;
+	generate --> __end__;
+	retrieve --> grade_documents;
+	websearch --> generate;
+	__start__ -.-> websearch;
+	__start__ -.-> retrieve;
+	grade_documents -.-> websearch;
+	grade_documents -.-> generate;
+	generate -. &nbsp;useful&nbsp; .-> __end__;
+	generate -. &nbsp;not useful&nbsp; .-> websearch;
+	generate -. &nbsp;not supported&nbsp; .-> generate;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
+```
+
 ### Running the project
 
 Uncomment the **vectorstore** code at the ingestion file and run the project. A new `.chroma` folder will be created at the root of the application.
@@ -93,3 +122,4 @@ PYTHONPATH=</Users/../advanced-rag>
 - [langgraph-course repository from Eden Marco](https://github.com/emarco177/langgaph-course)
 - [LangGraph- Develop LLM powered AI agents with LangGraph](https://www.udemy.com/course/langgraph/?couponCode=KEEPLEARNING)
 - [Self-RAG: Learning to retrieve, generate, and critique through self-reflection](https://arxiv.org/pdf/2310.11511)
+- [Adaptive RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity](https://arxiv.org/pdf/2403.14403)
