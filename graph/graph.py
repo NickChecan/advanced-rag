@@ -66,6 +66,7 @@ workflow.add_node(GRADE_DOCUMENTS, grade_documents)
 workflow.add_node(GENERATE, generate)
 workflow.add_node(WEBSEARCH, web_search)
 
+# workflow.set_entry_point(RETRIEVE)
 #> For Adaptive RAG Flow
 workflow.set_conditional_entry_point(
     route_question,
@@ -76,7 +77,6 @@ workflow.set_conditional_entry_point(
 )
 #< For Adaptive RAG Flow
 
-workflow.set_entry_point(RETRIEVE)
 workflow.add_edge(RETRIEVE, GRADE_DOCUMENTS)
 workflow.add_conditional_edges(
     GRADE_DOCUMENTS,
@@ -87,6 +87,8 @@ workflow.add_conditional_edges(
     }
 )
 
+workflow.add_edge(WEBSEARCH, GENERATE)
+# workflow.add_edge(GENERATE, END)
 #> For Self RAG Flow
 workflow.add_conditional_edges(
     GENERATE,
@@ -98,9 +100,6 @@ workflow.add_conditional_edges(
     },
 )
 #< For Self RAG Flow
-
-workflow.add_edge(WEBSEARCH, GENERATE)
-workflow.add_edge(GENERATE, END)
 
 app = workflow.compile()
 

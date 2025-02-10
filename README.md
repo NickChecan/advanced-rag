@@ -71,8 +71,6 @@ graph TD;
 	generate(generate)
 	websearch(websearch)
 	__end__([<p>__end__</p>]):::last
-	__start__ --> retrieve;
-	generate --> __end__;
 	retrieve --> grade_documents;
 	websearch --> generate;
 	__start__ -.-> websearch;
